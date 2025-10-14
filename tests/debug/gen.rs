@@ -52,7 +52,7 @@ impl Debug for Lite<syn::Arm> {
             impl Debug for Print {
                 fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
                     formatter.write_str("Some(")?;
-                    Debug::fmt(Lite(&self.0.1), formatter)?;
+                    Debug::fmt(Lite(&self.0 .1), formatter)?;
                     formatter.write_str(")")?;
                     Ok(())
                 }
@@ -142,7 +142,7 @@ impl Debug for Lite<syn::BareFnArg> {
             impl Debug for Print {
                 fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
                     formatter.write_str("Some(")?;
-                    Debug::fmt(Lite(&self.0.0), formatter)?;
+                    Debug::fmt(Lite(&self.0 .0), formatter)?;
                     formatter.write_str(")")?;
                     Ok(())
                 }
@@ -166,7 +166,7 @@ impl Debug for Lite<syn::BareVariadic> {
             impl Debug for Print {
                 fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
                     formatter.write_str("Some(")?;
-                    Debug::fmt(Lite(&self.0.0), formatter)?;
+                    Debug::fmt(Lite(&self.0 .0), formatter)?;
                     formatter.write_str(")")?;
                     Ok(())
                 }
@@ -702,7 +702,7 @@ impl Debug for Lite<syn::Expr> {
                     impl Debug for Print {
                         fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
                             formatter.write_str("Some(")?;
-                            Debug::fmt(Lite(&self.0.1), formatter)?;
+                            Debug::fmt(Lite(&self.0 .1), formatter)?;
                             formatter.write_str(")")?;
                             Ok(())
                         }
@@ -1345,7 +1345,7 @@ impl Debug for Lite<syn::ExprIf> {
             impl Debug for Print {
                 fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
                     formatter.write_str("Some(")?;
-                    Debug::fmt(Lite(&self.0.1), formatter)?;
+                    Debug::fmt(Lite(&self.0 .1), formatter)?;
                     formatter.write_str(")")?;
                     Ok(())
                 }
@@ -2302,7 +2302,7 @@ impl Debug for Lite<syn::Item> {
                     impl Debug for Print {
                         fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
                             formatter.write_str("Some(")?;
-                            Debug::fmt(Lite(&self.0.1), formatter)?;
+                            Debug::fmt(Lite(&self.0 .1), formatter)?;
                             formatter.write_str(")")?;
                             Ok(())
                         }
@@ -2357,9 +2357,9 @@ impl Debug for Lite<syn::Item> {
                             Debug::fmt(
                                 &(
                                     &super::Option {
-                                        present: self.0.0.is_some(),
+                                        present: self.0 .0.is_some(),
                                     },
-                                    Lite(&self.0.1),
+                                    Lite(&self.0 .1),
                                 ),
                                 formatter,
                             )?;
@@ -2417,7 +2417,7 @@ impl Debug for Lite<syn::Item> {
                     impl Debug for Print {
                         fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
                             formatter.write_str("Some(")?;
-                            Debug::fmt(Lite(&self.0.1), formatter)?;
+                            Debug::fmt(Lite(&self.0 .1), formatter)?;
                             formatter.write_str(")")?;
                             Ok(())
                         }
@@ -2601,7 +2601,7 @@ impl Debug for Lite<syn::ItemExternCrate> {
             impl Debug for Print {
                 fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
                     formatter.write_str("Some(")?;
-                    Debug::fmt(Lite(&self.0.1), formatter)?;
+                    Debug::fmt(Lite(&self.0 .1), formatter)?;
                     formatter.write_str(")")?;
                     Ok(())
                 }
@@ -2662,9 +2662,9 @@ impl Debug for Lite<syn::ItemImpl> {
                     Debug::fmt(
                         &(
                             &super::Option {
-                                present: self.0.0.is_some(),
+                                present: self.0 .0.is_some(),
                             },
-                            Lite(&self.0.1),
+                            Lite(&self.0 .1),
                         ),
                         formatter,
                     )?;
@@ -2726,7 +2726,7 @@ impl Debug for Lite<syn::ItemMod> {
             impl Debug for Print {
                 fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
                     formatter.write_str("Some(")?;
-                    Debug::fmt(Lite(&self.0.1), formatter)?;
+                    Debug::fmt(Lite(&self.0 .1), formatter)?;
                     formatter.write_str(")")?;
                     Ok(())
                 }
@@ -2955,12 +2955,12 @@ impl Debug for Lite<syn::LitChar> {
 }
 impl Debug for Lite<syn::LitFloat> {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
-        write!(formatter, "{}", & self.value)
+        write!(formatter, "{}", &self.value)
     }
 }
 impl Debug for Lite<syn::LitInt> {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
-        write!(formatter, "{}", & self.value)
+        write!(formatter, "{}", &self.value)
     }
 }
 impl Debug for Lite<syn::LitStr> {
@@ -3003,7 +3003,7 @@ impl Debug for Lite<syn::LocalInit> {
             impl Debug for Print {
                 fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
                     formatter.write_str("Some(")?;
-                    Debug::fmt(Lite(&self.0.1), formatter)?;
+                    Debug::fmt(Lite(&self.0 .1), formatter)?;
                     formatter.write_str(")")?;
                     Ok(())
                 }
@@ -3145,7 +3145,7 @@ impl Debug for Lite<syn::Pat> {
                     impl Debug for Print {
                         fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
                             formatter.write_str("Some(")?;
-                            Debug::fmt(Lite(&self.0.1), formatter)?;
+                            Debug::fmt(Lite(&self.0 .1), formatter)?;
                             formatter.write_str(")")?;
                             Ok(())
                         }
@@ -3352,7 +3352,7 @@ impl Debug for Lite<syn::PatIdent> {
             impl Debug for Print {
                 fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
                     formatter.write_str("Some(")?;
-                    Debug::fmt(Lite(&self.0.1), formatter)?;
+                    Debug::fmt(Lite(&self.0 .1), formatter)?;
                     formatter.write_str(")")?;
                     Ok(())
                 }
@@ -3538,8 +3538,7 @@ impl Debug for Lite<syn::PathArguments> {
         match &self.value {
             syn::PathArguments::None => formatter.write_str("PathArguments::None"),
             syn::PathArguments::AngleBracketed(_val) => {
-                let mut formatter = formatter
-                    .debug_struct("PathArguments::AngleBracketed");
+                let mut formatter = formatter.debug_struct("PathArguments::AngleBracketed");
                 if _val.colon2_token.is_some() {
                     formatter.field("colon2_token", &Present);
                 }
@@ -3549,8 +3548,7 @@ impl Debug for Lite<syn::PathArguments> {
                 formatter.finish()
             }
             syn::PathArguments::Parenthesized(_val) => {
-                let mut formatter = formatter
-                    .debug_struct("PathArguments::Parenthesized");
+                let mut formatter = formatter.debug_struct("PathArguments::Parenthesized");
                 if !_val.inputs.is_empty() {
                     formatter.field("inputs", Lite(&_val.inputs));
                 }
@@ -3674,10 +3672,7 @@ impl Debug for Lite<syn::Receiver> {
                             #[repr(transparent)]
                             struct Print(Option<syn::Lifetime>);
                             impl Debug for Print {
-                                fn fmt(
-                                    &self,
-                                    formatter: &mut fmt::Formatter,
-                                ) -> fmt::Result {
+                                fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
                                     match &self.0 {
                                         Some(_val) => {
                                             formatter.write_str("Some(")?;
@@ -3689,7 +3684,7 @@ impl Debug for Lite<syn::Receiver> {
                                     }
                                 }
                             }
-                            Print::ref_cast(&self.0.1)
+                            Print::ref_cast(&self.0 .1)
                         },
                         formatter,
                     )?;
@@ -3817,12 +3812,9 @@ impl Debug for Lite<syn::Stmt> {
             syn::Stmt::Expr(_v0, _v1) => {
                 let mut formatter = formatter.debug_tuple("Stmt::Expr");
                 formatter.field(Lite(_v0));
-                formatter
-                    .field(
-                        &super::Option {
-                            present: _v1.is_some(),
-                        },
-                    );
+                formatter.field(&super::Option {
+                    present: _v1.is_some(),
+                });
                 formatter.finish()
             }
             syn::Stmt::Macro(_val) => {
@@ -3885,11 +3877,13 @@ impl Debug for Lite<syn::TraitBound> {
 impl Debug for Lite<syn::TraitBoundModifier> {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         match &self.value {
-            syn::TraitBoundModifier::None => {
-                formatter.write_str("TraitBoundModifier::None")
-            }
+            syn::TraitBoundModifier::None => formatter.write_str("TraitBoundModifier::None"),
             syn::TraitBoundModifier::Maybe(_val) => {
                 formatter.write_str("TraitBoundModifier::Maybe")?;
+                Ok(())
+            }
+            ::syn::TraitBoundModifier::Const(_tilde, _constness) => {
+                formatter.write_str("TraitBoundModifier::Const")?;
                 Ok(())
             }
         }
@@ -3913,7 +3907,7 @@ impl Debug for Lite<syn::TraitItem> {
                     impl Debug for Print {
                         fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
                             formatter.write_str("Some(")?;
-                            Debug::fmt(Lite(&self.0.1), formatter)?;
+                            Debug::fmt(Lite(&self.0 .1), formatter)?;
                             formatter.write_str(")")?;
                             Ok(())
                         }
@@ -3967,7 +3961,7 @@ impl Debug for Lite<syn::TraitItem> {
                     impl Debug for Print {
                         fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
                             formatter.write_str("Some(")?;
-                            Debug::fmt(Lite(&self.0.1), formatter)?;
+                            Debug::fmt(Lite(&self.0 .1), formatter)?;
                             formatter.write_str(")")?;
                             Ok(())
                         }
@@ -4014,7 +4008,7 @@ impl Debug for Lite<syn::TraitItemConst> {
             impl Debug for Print {
                 fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
                     formatter.write_str("Some(")?;
-                    Debug::fmt(Lite(&self.0.1), formatter)?;
+                    Debug::fmt(Lite(&self.0 .1), formatter)?;
                     formatter.write_str(")")?;
                     Ok(())
                 }
@@ -4085,7 +4079,7 @@ impl Debug for Lite<syn::TraitItemType> {
             impl Debug for Print {
                 fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
                     formatter.write_str("Some(")?;
-                    Debug::fmt(Lite(&self.0.1), formatter)?;
+                    Debug::fmt(Lite(&self.0 .1), formatter)?;
                     formatter.write_str(")")?;
                     Ok(())
                 }
@@ -4640,7 +4634,7 @@ impl Debug for Lite<syn::Variadic> {
             impl Debug for Print {
                 fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
                     formatter.write_str("Some(")?;
-                    Debug::fmt(Lite(&self.0.0), formatter)?;
+                    Debug::fmt(Lite(&self.0 .0), formatter)?;
                     formatter.write_str(")")?;
                     Ok(())
                 }
@@ -4668,7 +4662,7 @@ impl Debug for Lite<syn::Variant> {
             impl Debug for Print {
                 fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
                     formatter.write_str("Some(")?;
-                    Debug::fmt(Lite(&self.0.1), formatter)?;
+                    Debug::fmt(Lite(&self.0 .1), formatter)?;
                     formatter.write_str(")")?;
                     Ok(())
                 }

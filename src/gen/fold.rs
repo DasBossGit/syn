@@ -3359,6 +3359,9 @@ where
         crate::TraitBoundModifier::Maybe(_binding_0) => {
             crate::TraitBoundModifier::Maybe(_binding_0)
         }
+        crate::TraitBoundModifier::Const(_binding_0,_binding_1) => {
+            crate::TraitBoundModifier::Const(_binding_0,_binding_1)
+        }
     }
 }
 #[cfg(feature = "full")]

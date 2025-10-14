@@ -967,8 +967,7 @@ where
 pub fn visit_angle_bracketed_generic_arguments_mut<V>(
     v: &mut V,
     node: &mut crate::AngleBracketedGenericArguments,
-)
-where
+) where
     V: VisitMut + ?Sized,
 {
     skip!(node.colon2_token);
@@ -2644,31 +2643,38 @@ where
 pub fn visit_lit_byte_mut<V>(v: &mut V, node: &mut crate::LitByte)
 where
     V: VisitMut + ?Sized,
-{}
+{
+}
 pub fn visit_lit_byte_str_mut<V>(v: &mut V, node: &mut crate::LitByteStr)
 where
     V: VisitMut + ?Sized,
-{}
+{
+}
 pub fn visit_lit_cstr_mut<V>(v: &mut V, node: &mut crate::LitCStr)
 where
     V: VisitMut + ?Sized,
-{}
+{
+}
 pub fn visit_lit_char_mut<V>(v: &mut V, node: &mut crate::LitChar)
 where
     V: VisitMut + ?Sized,
-{}
+{
+}
 pub fn visit_lit_float_mut<V>(v: &mut V, node: &mut crate::LitFloat)
 where
     V: VisitMut + ?Sized,
-{}
+{
+}
 pub fn visit_lit_int_mut<V>(v: &mut V, node: &mut crate::LitInt)
 where
     V: VisitMut + ?Sized,
-{}
+{
+}
 pub fn visit_lit_str_mut<V>(v: &mut V, node: &mut crate::LitStr)
 where
     V: VisitMut + ?Sized,
-{}
+{
+}
 #[cfg(feature = "full")]
 #[cfg_attr(docsrs, doc(cfg(feature = "full")))]
 pub fn visit_local_mut<V>(v: &mut V, node: &mut crate::Local)
@@ -2783,8 +2789,7 @@ where
 pub fn visit_parenthesized_generic_arguments_mut<V>(
     v: &mut V,
     node: &mut crate::ParenthesizedGenericArguments,
-)
-where
+) where
     V: VisitMut + ?Sized,
 {
     skip!(node.paren_token);
@@ -3177,7 +3182,8 @@ where
 pub fn visit_span_mut<V>(v: &mut V, node: &mut proc_macro2::Span)
 where
     V: VisitMut + ?Sized,
-{}
+{
+}
 #[cfg(feature = "full")]
 #[cfg_attr(docsrs, doc(cfg(feature = "full")))]
 pub fn visit_static_mutability_mut<V>(v: &mut V, node: &mut crate::StaticMutability)
@@ -3246,6 +3252,10 @@ where
         crate::TraitBoundModifier::None => {}
         crate::TraitBoundModifier::Maybe(_binding_0) => {
             skip!(_binding_0);
+        }
+        crate::TraitBoundModifier::Const(_binding_0, _binding_1) => {
+            skip!(_binding_0);
+            skip!(_binding_1);
         }
     }
 }

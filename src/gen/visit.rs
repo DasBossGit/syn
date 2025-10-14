@@ -3415,6 +3415,10 @@ where
         crate::TraitBoundModifier::Maybe(_binding_0) => {
             skip!(_binding_0);
         }
+        crate::TraitBoundModifier::Const(_binding_0, _binding_1) => {
+            skip!(_binding_0);
+            skip!(_binding_1);
+        }
     }
 }
 #[cfg(feature = "full")]

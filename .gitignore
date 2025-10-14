@@ -1,4 +1,6 @@
 target/
+target_ra/
 Cargo.lock
 /tests/rust/*
 /tests/*.pending-snap
+.vscode

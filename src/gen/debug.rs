@@ -2406,12 +2406,8 @@ impl Debug for crate::PathArguments {
         formatter.write_str("PathArguments::")?;
         match self {
             crate::PathArguments::None => formatter.write_str("None"),
-            crate::PathArguments::AngleBracketed(v0) => {
-                v0.debug(formatter, "AngleBracketed")
-            }
-            crate::PathArguments::Parenthesized(v0) => {
-                v0.debug(formatter, "Parenthesized")
-            }
+            crate::PathArguments::AngleBracketed(v0) => v0.debug(formatter, "AngleBracketed"),
+            crate::PathArguments::Parenthesized(v0) => v0.debug(formatter, "Parenthesized"),
         }
     }
 }
@@ -2636,6 +2632,12 @@ impl Debug for crate::TraitBoundModifier {
             crate::TraitBoundModifier::Maybe(v0) => {
                 let mut formatter = formatter.debug_tuple("Maybe");
                 formatter.field(v0);
+                formatter.finish()
+            }
+            Self::Const(tilde, constness) => {
+                let mut formatter = formatter.debug_tuple("Const");
+                formatter.field(tilde);
+                formatter.field(constness);
                 formatter.finish()
             }
         }

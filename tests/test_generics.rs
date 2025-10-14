@@ -172,6 +172,20 @@ fn test_type_param_bound() {
     })
     "#);
 
+    let tokens = quote!(~const Trait);
+    snapshot!(tokens as TypeParamBound, @r#"
+    TypeParamBound::Trait(TraitBound {
+        modifier: TraitBoundModifier::Const,
+        path: Path {
+            segments: [
+                PathSegment {
+                    ident: "Trait",
+                },
+            ],
+        },
+    })
+    "#);
+
     let tokens = quote!(for<'a> Trait);
     snapshot!(tokens as TypeParamBound, @r#"
     TypeParamBound::Trait(TraitBound {

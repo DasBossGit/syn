@@ -2335,6 +2335,9 @@ impl Hash for crate::TraitBoundModifier {
             crate::TraitBoundModifier::Maybe(_) => {
                 state.write_u8(1u8);
             }
+            crate::TraitBoundModifier::Const(_, _) => {
+                state.write_u8(2u8);
+            }
         }
     }
 }
@@ -2546,7 +2549,8 @@ impl Hash for crate::TypeInfer {
     fn hash<H>(&self, _state: &mut H)
     where
         H: Hasher,
-    {}
+    {
+    }
 }
 #[cfg(any(feature = "derive", feature = "full"))]
 #[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
@@ -2564,7 +2568,8 @@ impl Hash for crate::TypeNever {
     fn hash<H>(&self, _state: &mut H)
     where
         H: Hasher,
-    {}
+    {
+    }
 }
 #[cfg(any(feature = "derive", feature = "full"))]
 #[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
@@ -2713,7 +2718,8 @@ impl Hash for crate::UseGlob {
     fn hash<H>(&self, _state: &mut H)
     where
         H: Hasher,
-    {}
+    {
+    }
 }
 #[cfg(feature = "full")]
 #[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]

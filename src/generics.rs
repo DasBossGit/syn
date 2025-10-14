@@ -427,6 +427,7 @@ ast_enum! {
     pub enum TraitBoundModifier {
         None,
         Maybe(Token![?]),
+        Const(Token![~], Token![const]),
     }
 }
 
@@ -867,7 +868,7 @@ pub(crate) mod parsing {
 
             if lifetimes.is_some() {
                 match modifier {
-                    TraitBoundModifier::None => {}
+                    TraitBoundModifier::None | TraitBoundModifier::Const(_, _) => {}
                     TraitBoundModifier::Maybe(maybe) => {
                         let msg = "`for<...>` binder not allowed with `?` trait polarity modifier";
                         return Err(Error::new(maybe.span, msg));
@@ -893,6 +894,10 @@ pub(crate) mod parsing {
         fn parse(input: ParseStream) -> Result<Self> {
             if input.peek(Token![?]) {
                 input.parse().map(TraitBoundModifier::Maybe)
+            } else if input.peek(Token![~]) && input.peek2(Token![const]) {
+                let tilde_token: Token![~] = input.parse()?;
+                let const_token: Token![const] = input.parse()?;
+                Ok(TraitBoundModifier::Const(tilde_token, const_token))
             } else {
                 Ok(TraitBoundModifier::None)
             }
@@ -1356,6 +1361,10 @@ pub(crate) mod printing {
             match self {
                 TraitBoundModifier::None => {}
                 TraitBoundModifier::Maybe(t) => t.to_tokens(tokens),
+                TraitBoundModifier::Const(tilde, const_token) => {
+                    tilde.to_tokens(tokens);
+                    const_token.to_tokens(tokens);
+                }
             }
         }
     }
