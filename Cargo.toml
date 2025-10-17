@@ -21,21 +21,40 @@
     name = "syn"
     repository = "https://github.com/dtolnay/syn"
     rust-version = "1.68"
-    version = "2.0.106"
+    version = "2.0.107"
 
 [features]
-    clone-impls  = []
-    default      = ["clone-impls", "derive", "parsing", "printing", "proc-macro"]
-    derive       = []
+    clone-impls = []
+    default = [
+        "clone-impls",
+        "derive",
+        "derive_debug",
+        "parsing",
+        "printing",
+        "proc-macro",
+    ]
+    derive = []
+    derive_debug = []
     extra-traits = []
-    fold         = []
-    full         = []
-    parsing      = []
-    printing     = ["dep:quote"]
-    proc-macro   = ["proc-macro2/proc-macro", "quote?/proc-macro"]
-    test         = ["syn-test-suite/all-features"]
-    visit        = []
-    visit-mut    = []
+    fold = []
+    full = [
+        "clone-impls",
+        "derive",
+        "derive_debug",
+        "extra-traits",
+        "fold",
+        "parsing",
+        "printing",
+        "proc-macro",
+        "visit",
+        "visit-mut",
+    ]
+    parsing = []
+    printing = ["dep:quote"]
+    proc-macro = ["proc-macro2/proc-macro", "quote?/proc-macro"]
+    test = ["syn-test-suite/all-features"]
+    visit = []
+    visit-mut = []
 
 [dependencies]
     proc-macro2   = { version = "1.0.91", default-features = false }
