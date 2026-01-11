@@ -252,6 +252,7 @@ ast_struct! {
         pub vis: Visibility,
         pub unsafety: Option<Token![unsafe]>,
         pub auto_token: Option<Token![auto]>,
+        pub constness: Option<Token![const]>,
         pub restriction: Option<ImplRestriction>,
         pub trait_token: Token![trait],
         pub ident: Ident,
@@ -2171,12 +2172,14 @@ pub(crate) mod parsing {
         {
             let unsafety = None;
             let auto_token = None;
+            let constness = None;
             parse_rest_of_trait(
                 input,
                 attrs,
                 vis,
                 unsafety,
                 auto_token,
+                constness,
                 trait_token,
                 ident,
                 generics,
@@ -2197,6 +2200,7 @@ pub(crate) mod parsing {
             let vis: Visibility = input.parse()?;
             let unsafety: Option<Token![unsafe]> = input.parse()?;
             let auto_token: Option<Token![auto]> = input.parse()?;
+            let constness: Option<Token![const]> = input.parse()?;
             let trait_token: Token![trait] = input.parse()?;
             let ident: Ident = input.parse()?;
             let generics: Generics = input.parse()?;
@@ -2206,6 +2210,7 @@ pub(crate) mod parsing {
                 vis,
                 unsafety,
                 auto_token,
+                constness,
                 trait_token,
                 ident,
                 generics,
@@ -2219,6 +2224,7 @@ pub(crate) mod parsing {
         vis: Visibility,
         unsafety: Option<Token![unsafe]>,
         auto_token: Option<Token![auto]>,
+        constness: Option<Token![const]>,
         trait_token: Token![trait],
         ident: Ident,
         mut generics: Generics,
@@ -2258,6 +2264,7 @@ pub(crate) mod parsing {
             vis,
             unsafety,
             auto_token,
+            constness,
             restriction: None,
             trait_token,
             ident,

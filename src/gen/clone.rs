@@ -1265,6 +1265,7 @@ impl Clone for crate::ItemTrait {
             vis: self.vis.clone(),
             unsafety: self.unsafety.clone(),
             auto_token: self.auto_token.clone(),
+            constness: self.constness.clone(),
             restriction: self.restriction.clone(),
             trait_token: self.trait_token.clone(),
             ident: self.ident.clone(),
