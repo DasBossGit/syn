@@ -1,27 +1,24 @@
 [package]
-    authors = ["David Tolnay <dtolnay@gmail.com>"]
-    categories = [
-        "development-tools::procedural-macro-helpers",
-        "parser-implementations",
-    ]
-    description = "Parser for Rust source code"
-    documentation = "https://docs.rs/syn"
-    edition = "2021"
-    include = [
-        "/Cargo.toml",
-        "/LICENSE-APACHE",
-        "/LICENSE-MIT",
-        "/README.md",
-        "/benches/**",
-        "/src/**",
-        "/tests/**",
-    ]
-    keywords = ["macros", "syn"]
-    license = "MIT OR Apache-2.0"
-    name = "syn"
-    repository = "https://github.com/dtolnay/syn"
-    rust-version = "1.68"
-    version = "2.0.107"
+name = "syn"
+version = "2.0.114"
+authors = ["David Tolnay <dtolnay@gmail.com>"]
+categories = ["development-tools::procedural-macro-helpers", "parser-implementations"]
+description = "Parser for Rust source code"
+documentation = "https://docs.rs/syn"
+edition = "2021"
+include = [
+    "/benches/**",
+    "/Cargo.toml",
+    "/LICENSE-APACHE",
+    "/LICENSE-MIT",
+    "/README.md",
+    "/src/**",
+    "/tests/**",
+]
+keywords = ["macros", "syn"]
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/dtolnay/syn"
+rust-version = "1.68"
 
 [features]
     clone-impls = []
@@ -71,11 +68,11 @@
     termcolor      = "1"
 
 [target.'cfg(not(miri))'.dev-dependencies]
-    flate2  = "1"
-    rayon   = "1"
-    reqwest = { version = "0.12", features = ["blocking"] }
-    tar     = "0.4.16"
-    walkdir = "2.3.2"
+flate2 = "1"
+rayon = "1"
+reqwest = { version = "0.13", features = ["blocking"] }
+tar = "0.4.16"
+walkdir = "2.3.2"
 
 [[bench]]
     harness           = false
