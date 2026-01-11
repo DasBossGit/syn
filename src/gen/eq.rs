@@ -1256,7 +1256,7 @@ impl Eq for crate::ItemTrait {}
 impl PartialEq for crate::ItemTrait {
     fn eq(&self, other: &Self) -> bool {
         self.attrs == other.attrs && self.vis == other.vis
-            && self.unsafety == other.unsafety && self.auto_token == other.auto_token
+            && self.unsafety == other.unsafety && self.auto_token == other.auto_token&& self.constness == other.constness
             && self.restriction == other.restriction && self.ident == other.ident
             && self.generics == other.generics && self.colon_token == other.colon_token
             && self.supertraits == other.supertraits && self.items == other.items

@@ -2472,6 +2472,9 @@ impl Debug for Lite<syn::Item> {
                 if _val.auto_token.is_some() {
                     formatter.field("auto_token", &Present);
                 }
+                if _val.constness.is_some() {
+                    formatter.field("constness", &Present);
+                }
                 if let Some(val) = &_val.restriction {
                     #[derive(RefCast)]
                     #[repr(transparent)]

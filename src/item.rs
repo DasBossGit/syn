@@ -3139,6 +3139,7 @@ mod printing {
             self.vis.to_tokens(tokens);
             self.unsafety.to_tokens(tokens);
             self.auto_token.to_tokens(tokens);
+            self.constness.to_tokens(tokens);
             self.trait_token.to_tokens(tokens);
             self.ident.to_tokens(tokens);
             self.generics.to_tokens(tokens);

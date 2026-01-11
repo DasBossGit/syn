@@ -1859,6 +1859,7 @@ impl crate::ItemTrait {
         formatter.field("vis", &self.vis);
         formatter.field("unsafety", &self.unsafety);
         formatter.field("auto_token", &self.auto_token);
+        formatter.field("constness", &self.constness);
         formatter.field("restriction", &self.restriction);
         formatter.field("trait_token", &self.trait_token);
         formatter.field("ident", &self.ident);
